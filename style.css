@@ -1,0 +1,75 @@
+.headerImg{
+    background-image: url("header.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 2000px;
+    background-attachment: fixed;
+    border: 1px solid aqua;
+    /* width: 100%; */
+    height: 50vh;
+    margin-bottom: 50px;
+}
+
+.navbar{
+    height: 7vh;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.searchBox{
+    /* border: 1px solid aqua; */
+    /* margin-bottom: 10%; */
+    border-top: 1px black;
+    border-left: 1px black;
+    border-right: 1px black;
+    width: 15%;
+    height: 5%;
+}
+
+input.searchBox[type="text"] {
+    transition: all 0.4s ease-in-out;
+}
+
+input.searchBox[type="text"]:focus {
+    outline: none;
+    width: 20%;
+}
+
+.pokemonList{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.pokemonList td{
+    vertical-align: middle;
+    text-align: center;
+}
+
+.pokemonList th{
+    vertical-align: middle;
+    text-align: center
+}
+
+.pokemonPic{
+    width: 200px;
+}
+
+.pokemonName{
+    text-align: center;
+}
+
+.pokemonStats{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.pokemonStats td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.pokemonStats th{
+    vertical-align: middle;
+}
