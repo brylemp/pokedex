@@ -23,10 +23,16 @@ function displaySearchedPokemons(List){
     else{
         displayPokemons(List,0,offset)
     }
-    
 }
 
 searchBar.addEventListener('input',()=>{
     searchThis = searchBar.value
     findPokemon(searchThis)
+    const spinner = document.querySelector('#load')
+    if(searchThis == ""){
+        spinner.className = "spinner-border"
+    }
+    else{
+        spinner.className = "spinner-border d-none"
+    }
 })
