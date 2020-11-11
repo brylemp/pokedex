@@ -42,6 +42,7 @@ input.searchBox[type="text"]:focus {
 }
 
 .pokemonList{
+    table-layout:fixed;
     width: 100%;
     margin: 0 auto;
 }
@@ -54,6 +55,11 @@ input.searchBox[type="text"]:focus {
 .pokemonList th{
     vertical-align: middle;
     text-align: center
+}
+
+.pokemonList th:first-child{
+    /* border: 1px solid black; */
+    width: 15%;
 }
 
 .pokemonPic{

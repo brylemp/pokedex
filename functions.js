@@ -26,6 +26,7 @@ function displayPokemons(DisplayList,offset,toDisplay){
         }
         else{
             imgLink.src = DisplayList[i].data.sprites.front_default
+            imgLink.style.width = '100px';
         }
         newNameLink.href = `pokemon.html?pokemon=${DisplayList[i].data.id}`
         newNameLink.innerHTML = capitalize(DisplayList[i].data.name)
