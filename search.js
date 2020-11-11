@@ -26,7 +26,7 @@ function displaySearchedPokemons(List){
 }
 
 searchBar.addEventListener('input',()=>{
-    searchThis = searchBar.value
+    searchThis = searchBar.value.toLowerCase()
     findPokemon(searchThis)
     const spinner = document.querySelector('#load')
     if(searchThis == ""){

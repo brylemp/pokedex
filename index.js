@@ -10,6 +10,8 @@ async function getPokemons(){
         promiseList.push(axios.get(count.url))
     }
     const promiseResults = await Promise.all(promiseList)
+    const searchBar = document.querySelector('#search')
+    searchBar.className = "searchBox"
     displayPokemons(promiseResults,0,20)
     return promiseResults
 }
