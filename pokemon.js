@@ -1,4 +1,4 @@
-const pokemonRead = window.location.href.slice(46)
+const pokemonRead = window.location.href.slice(window.location.href.search("pokemon=")+8)
 
 async function getPokemon(){
     const pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonRead}`)
