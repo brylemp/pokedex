@@ -8,8 +8,8 @@ function capitalize(string){
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function displayPokemons(DisplayList){
-    for(pokemon of DisplayList){
+function displayPokemons(DisplayList,offset,toDisplay){
+    for(i=offset;i<offset+toDisplay;i++){
         const newRow = document.createElement('tr')
         const newHead = document.createElement('th')
         const newImg = document.createElement('td')
@@ -19,22 +19,26 @@ function displayPokemons(DisplayList){
         const newType = document.createElement('td')
 
         newHead.scope = "row"
-        newHead.innerHTML = pokemon.data.id
-        imgLink.src = pokemon.data.sprites.front_default
-        imgLink.className = "pokeSprite"
-        // newNameLink.href = `https://pokeapi.co/api/v2/pokemon/${pokemon.data.id}`
-        newNameLink.href = `pokemon.html?pokemon=${pokemon.data.id}`
-        newNameLink.innerHTML = capitalize(pokemon.data.name)
+        newHead.innerHTML = DisplayList[i].data.id
+        if(DisplayList[i].data.sprites.front_default == null){
+            imgLink.src = "noimage.jpg"
+            imgLink.style.width = '100px';
+        }
+        else{
+            imgLink.src = DisplayList[i].data.sprites.front_default
+        }
+        newNameLink.href = `pokemon.html?pokemon=${DisplayList[i].data.id}`
+        newNameLink.innerHTML = capitalize(DisplayList[i].data.name)
 
-        if(pokemon.data.types.length > 1){
+        if(DisplayList[i].data.types.length > 1){
             const typeList =[]
-            for(type of pokemon.data.types){
+            for(type of DisplayList[i].data.types){
                 typeList.push(capitalize(type.type.name))
             }
             newType.innerHTML = typeList.join(', ')
         }
         else{
-            newType.innerHTML = capitalize(pokemon.data.types[0].type.name)
+            newType.innerHTML = capitalize(DisplayList[i].data.types[0].type.name)
         }
         
         newImg.appendChild(imgLink)

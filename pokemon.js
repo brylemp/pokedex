@@ -1,8 +1,5 @@
-function capitalize(string){
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
 const pokemonRead = window.location.href.slice(46)
+
 async function getPokemon(){
     const pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonRead}`)
     console.log(pokemon)
@@ -16,9 +13,19 @@ async function getPokemon(){
     const pokemonHeight = document.querySelector("#pokemonHeight")
     const pokemonWeight = document.querySelector("#pokemonWeight")
 
-    console.log(pokemon.data.sprites.other["official-artwork"].front_default)
-    pokemonImage.src = pokemon.data.sprites.other["official-artwork"].front_default
-    imgLink.src = pokemon.data.sprites.front_default
+    if(pokemon.data.sprites.other["official-artwork"].front_default==null){
+        pokemonImage.src = "noimage.jpg"
+    }
+    else{
+        pokemonImage.src = pokemon.data.sprites.other["official-artwork"].front_default
+    }
+    if(pokemon.data.sprites.front_default == null){
+        imgLink.src = "noimage.jpg"
+        imgLink.style.width = '100px';
+    }
+    else{
+        imgLink.src = pokemon.data.sprites.front_default
+    }
     pokemonSprite.appendChild(imgLink)
     
     pokemonID.innerHTML = pokemon.data.id

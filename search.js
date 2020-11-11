@@ -10,14 +10,15 @@ async function findPokemon(search){
             searchList.push(pokemon)
         }
     }
-    console.log(searchList)
+    // console.log(searchList)
     displaySearchedPokemons(searchList)
 }
 
 function displaySearchedPokemons(List){
     const currentList = table.children[1]
     removeChildren(currentList)
-    displayPokemons(List)
+    console.log(List.length)
+    displayPokemons(List,0,List.length)
 }
 
 searchBar.addEventListener('input',()=>{

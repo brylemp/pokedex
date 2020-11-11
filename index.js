@@ -6,14 +6,17 @@ let results
 async function getPokemons(){
     const pokemonList = await axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1050`)
     const promiseList = []
-    console.log(offset)
     for(count of pokemonList.data.results){
         promiseList.push(axios.get(count.url))
     }
     const promiseResults = await Promise.all(promiseList)
-    console.log(promiseResults)
-    displayPokemons(promiseResults)
+    displayPokemons(promiseResults,0,20)
     return promiseResults
+}
+
+async function displayMorePokemons(promise,offset){
+    const promise2 = await promise
+    displayPokemons(promise2,offset,20)
 }
 
 results = getPokemons()
@@ -21,7 +24,7 @@ offset = parseInt(offset) + 20
 
 window.addEventListener('scroll', function (){
     if(((window.innerHeight + window.scrollY) == document.body.offsetHeight) && searchThis == ""){
-        results = getPokemons()
+        displayMorePokemons(results,offset)
         offset = parseInt(offset) + 20
     }
 })
