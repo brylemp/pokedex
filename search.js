@@ -10,15 +10,13 @@ async function findPokemon(search){
             searchList.push(pokemon)
         }
     }
-    // console.log(searchList)
     displaySearchedPokemons(searchList)
 }
 
 function displaySearchedPokemons(List){
     const currentList = table.children[1]
     removeChildren(currentList)
-    console.log(List.length)
-    displayPokemons(List,0,List.length)
+    (searchThis != "") ? displayPokemons(List,0,List.length) : displayPokemons(List,0,offset)
 }
 
 searchBar.addEventListener('input',()=>{
