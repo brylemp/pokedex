@@ -23,7 +23,7 @@ results = getPokemons()
 offset = parseInt(offset) + 20
 
 window.addEventListener('scroll', function (){
-    if(((window.innerHeight + window.scrollY) == document.body.offsetHeight) && searchThis == ""){
+    if(((window.innerHeight + window.scrollY) >= document.body.offsetHeight) && searchThis == ""){
         displayMorePokemons(results,offset)
         offset = parseInt(offset) + 20
         console.log(offset)
